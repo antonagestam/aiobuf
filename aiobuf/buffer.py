@@ -57,8 +57,8 @@ class LogBuffer:
 
 class TimedLogBuffer(LogBuffer):
     """
-    This class extends the AsyncLogBuffer with the ability to flush messages
-    every nth second.
+    This class extends the LogBuffer with the ability to flush messages every
+    nth second.
     """
 
     def __init__(
@@ -83,6 +83,7 @@ class MaxSizeLogBuffer(TimedLogBuffer):
     overhead than the TimedLogBuffer because it has to count the size of each
     message and keep track of a running total.
     """
+
     def __init__(
             self,
             fn: Callable,

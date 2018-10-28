@@ -30,6 +30,11 @@ loop.run_until_complete(asyncio.gather(*tasks))
 
 ### `aiobuf.log.MaxSizeLogBuffer`
 
+Keeps track of the size of its buffered messages and flushes when either the
+size or the time exceeds the given maximums. This buffer has more CPU overhead
+on writes than the TimedLogBuffer because it has to count the size of each
+message and keep track of a running total.
+
 ```python
 import asyncio
 import random
